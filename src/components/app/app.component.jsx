@@ -1,7 +1,7 @@
 /**
- * Filename: index.js
+ * Filename: App.js
  * Author: Jose A Felix
- * Description: index component
+ * Description: App component
  */
 
 // ----------------------------------------------------------------
@@ -11,9 +11,10 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../../pages/home/home.component";
 import Shop from "../../pages/shop/shop.component";
+import Header from "../header/header.component";
 
 /** Stylesheets */
-import "./App.css";
+import "./app.styles.scss";
 
 // ----------------------------------------------------------------
 
@@ -21,6 +22,7 @@ import "./App.css";
 function App() {
 	return (
 		<div>
+     <Header />
 			<Switch>
 				<Route exact path="/" component={Home} />
 				<Route path="/shop" component={Shop} />
