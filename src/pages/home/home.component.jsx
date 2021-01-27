@@ -8,19 +8,22 @@
 
 /** Components */
 import React from "react";
-import "./App.css";
-import Home from "./pages/home/home.component";
+import Directory from "../../components/directory/directory.component";
+
+/** Styles */
+import "./home.styles.scss";
 
 // ----------------------------------------------------------------
 
 // Main component
-function App() {
+const Home = () => {
+	// Rendering component
 	return (
-		<div>
-			<Home />
+		<div className="home">
+			<Directory />
 		</div>
 	);
-}
+};
 
 // Exporting component
-export default App;
+export default Home;
