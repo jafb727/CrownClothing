@@ -1,7 +1,7 @@
 /**
- * Filename: index.js
+ * Filename: homepage.component.jsx
  * Author: Jose A Felix
- * Description: index component
+ * Description: home page component
  */
 
 // ----------------------------------------------------------------
@@ -11,12 +11,12 @@ import React from "react";
 import Directory from "../../components/directory/directory.component";
 
 /** Styles */
-import "./home.styles.scss";
+import "./homepage.styles.scss";
 
 // ----------------------------------------------------------------
 
 // Main component
-const Home = () => {
+const HomePage = () => {
 	// Rendering component
 	return (
 		<div className="home">
@@ -26,4 +26,4 @@ const Home = () => {
 };
 
 // Exporting component
-export default Home;
+export default HomePage;
