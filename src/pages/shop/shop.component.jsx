@@ -1,7 +1,7 @@
 /**
- * Filename: index.js
+ * Filename: shop.component.jsx
  * Author: Jose A Felix
- * Description: index component
+ * Description: Shop component
  */
 
 // ----------------------------------------------------------------

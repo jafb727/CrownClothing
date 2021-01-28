@@ -30,6 +30,9 @@ class Directory extends React.Component {
 		};
 	}
 
+     // ----------------------------------------------------------------
+
+     // Rendering component
 	render() {
 		const { sections } = this.state;
 		return (

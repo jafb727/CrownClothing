@@ -1,7 +1,7 @@
 /**
  * Filename: index.js
  * Author: Jose A Felix
- * Description: index component
+ * Description: Index component
  */
 
 // ----------------------------------------------------------------

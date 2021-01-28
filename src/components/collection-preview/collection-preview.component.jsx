@@ -17,6 +17,7 @@ import "./collection-preview.styles.scss";
 
 // Main component
 const CollectionPreview = ({ title, items }) => {
+     // Rendering component
 	return (
 		<div className="collection-preview ">
 			<div className="title">{title}</div>

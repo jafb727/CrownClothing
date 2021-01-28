@@ -1,29 +1,24 @@
 /**
- * Filename: home.component.jsx
+ * Filename: custom-button.component.jsx
  * Author: Jose A Felix
- * Description: Home component
+ * Description: Custom button component
  */
 
 // ----------------------------------------------------------------
 
 /** Components */
 import React from "react";
-import Directory from "../../components/directory/directory.component";
 
 /** Styles */
-import "./home.styles.scss";
+import "./custom-button.styles.scss";
 
 // ----------------------------------------------------------------
 
 // Main component
-const Home = () => {
+const CustomButton = ({ children, ...buttonProps }) => {
 	// Rendering component
-	return (
-		<div className="home">
-			<Directory />
-		</div>
-	);
+	return <button className="custom-button" {...buttonProps}>{children}</button>;
 };
 
 // Exporting component
-export default Home;
+export default CustomButton;

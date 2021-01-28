@@ -1,29 +1,29 @@
 /**
- * Filename: home.component.jsx
+ * Filename: sign.component.jsx
  * Author: Jose A Felix
- * Description: Home component
+ * Description: Sig in and sign up component
  */
 
 // ----------------------------------------------------------------
 
 /** Components */
 import React from "react";
-import Directory from "../../components/directory/directory.component";
+import SignIn from "../../components/sing-in/sign-in.component";
 
 /** Styles */
-import "./home.styles.scss";
+import "./sign.styles.scss";
 
 // ----------------------------------------------------------------
 
 // Main component
-const Home = () => {
+const Sign = () => {
 	// Rendering component
 	return (
-		<div className="home">
-			<Directory />
+		<div className="sign">
+			<SignIn />
 		</div>
 	);
 };
 
 // Exporting component
-export default Home;
+export default Sign;

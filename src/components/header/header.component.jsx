@@ -20,6 +20,7 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 // Main component
 const Header = () => {
+     // Rendering component
 	return (
 		<div className="header">
 			<Link className="logo-container" to="/">

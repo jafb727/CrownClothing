@@ -1,7 +1,7 @@
 /**
  * Filename: menu-item.component.js
  * Author: Jose A Felix
- * Description: MenuItem component
+ * Description: Menu item component
  */
 
 // ----------------------------------------------------------------
@@ -17,6 +17,7 @@ import "./menu-item.styles.scss";
 
 // Main component
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => {
+	// Rendering component
 	return (
 		<div
 			className={`${size} menu-item`}
