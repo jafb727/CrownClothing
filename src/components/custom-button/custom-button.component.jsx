@@ -15,9 +15,16 @@ import "./custom-button.styles.scss";
 // ----------------------------------------------------------------
 
 // Main component
-const CustomButton = ({ children, ...buttonProps }) => {
+const CustomButton = ({ children, isGoogleSignIn, ...buttonProps }) => {
 	// Rendering component
-	return <button className="custom-button" {...buttonProps}>{children}</button>;
+	return (
+		<button
+			className={`${isGoogleSignIn ? "google-sign-in" : ""} custom-button`}
+			{...buttonProps}
+		>
+			{children}
+		</button>
+	);
 };
 
 // Exporting component
