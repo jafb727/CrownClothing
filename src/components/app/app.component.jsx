@@ -13,7 +13,7 @@ import Home from "../../pages/home/home.component";
 import Shop from "../../pages/shop/shop.component";
 import Header from "../header/header.component";
 import Sign from "../../pages/sign/sign.component";
-import { auth } from "../../firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
 /** Stylesheets */
 import "./app.styles.scss";
@@ -43,9 +43,25 @@ class App extends React.Component {
 		// This is to maintain up to date firebase with any change in the application
 		// So we need to implement a subscription
 		// Login session persists until the app component is attached to the DOM
-		this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-			this.setState({ currentUser: user });
-			console.log(user);
+		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+			if (userAuth) {
+				const userRef = await createUserProfileDocument(userAuth);
+
+				// If DB has been updated
+				userRef.onSnapshot((snapShot) => {
+					this.setState({
+						currentUser: {
+							id: snapShot.id,
+							...snapShot.data(),
+						},
+					}, () => {
+                              console.log(this.state)
+                         });
+				});
+
+				// Set currentUser to null in case is userAuth is null
+				this.setState({ currentUser: userAuth });
+			}
 		});
 	}
 

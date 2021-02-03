@@ -8,7 +8,8 @@
 
 /** Components */
 import React from "react";
-import SignIn from "../../components/sing-in/sign-in.component";
+import SignIn from "../../components/sign-in/sign-in.component";
+import SignUp from "../../components/sign-up/sign-up.component";
 
 /** Styles */
 import "./sign.styles.scss";
@@ -21,6 +22,7 @@ const Sign = () => {
 	return (
 		<div className="sign">
 			<SignIn />
+			<SignUp />
 		</div>
 	);
 };
