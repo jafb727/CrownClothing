@@ -5,14 +5,24 @@
  */
 
 // ----------------------------------------------------------------
+/** Imports */
 
-/** Components */
 import React from "react";
-import FormInput from "../../components/form-input/form-input.component";
-import CustomButton from "../../components/custom-button/custom-button.component";
+
+// ----------------------------------------------------------------
+/** Firebase */
+
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
+// ----------------------------------------------------------------
+/** Components */
+
+import FormInput from "../../components/form-input/form-input.component";
+import CustomButton from "../../components/custom-button/custom-button.component";
+
+// ----------------------------------------------------------------
 /** Styles */
+
 import "./sign-in.styles.scss";
 
 // ----------------------------------------------------------------
@@ -34,7 +44,7 @@ class SignIn extends React.Component {
 	/** Functions */
 
 	/**
-	 * onSubmitSign
+	 * onSubmitSign function
 	 * Handles the form submition event
 	 * @param {object} event - the DOM element that triggered the event
 	 */
@@ -57,6 +67,7 @@ class SignIn extends React.Component {
 	};
 
 	/**
+      * onFieldChange function
 	 * Handles the field chaging event
 	 * @param {object} event - the DOM element that triggered the event
 	 */

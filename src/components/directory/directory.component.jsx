@@ -5,15 +5,23 @@
  */
 
 // ----------------------------------------------------------------
+/** Imports */
 
+import React from "react";
+
+// ----------------------------------------------------------------
 /** JSON data */
+
 import SECTIONS_DATA from "./sections.data";
 
+// ----------------------------------------------------------------
 /** Components */
-import React from "react";
+
 import MenuItem from "../menu-item/menu-item.component";
 
+// ----------------------------------------------------------------
 /** Styles */
+
 import "./directory.styles.scss";
 
 // ----------------------------------------------------------------
@@ -34,6 +42,7 @@ class Directory extends React.Component {
 
      // Rendering component
 	render() {
+          // State desconstructed
 		const { sections } = this.state;
 		return (
 			<div className="directory-menu">

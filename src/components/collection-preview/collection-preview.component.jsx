@@ -5,12 +5,18 @@
  */
 
 // ----------------------------------------------------------------
+/** Imports */
 
-/** Components */
 import React from "react";
+
+// ----------------------------------------------------------------
+/** Components */
+
 import CollectionItem from "../../components/collection-item/collection-item.component";
 
+// ----------------------------------------------------------------
 /** Styles */
+
 import "./collection-preview.styles.scss";
 
 // ----------------------------------------------------------------

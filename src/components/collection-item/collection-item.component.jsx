@@ -5,11 +5,13 @@
  */
 
 // ----------------------------------------------------------------
+/** Imports */
 
-/** Components */
 import React from "react";
 
+// ----------------------------------------------------------------
 /** Styles */
+
 import "./collection-item.styles.scss";
 
 // ----------------------------------------------------------------
@@ -31,4 +33,5 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
 	);
 };
 
+// Exporting component
 export default CollectionItem;

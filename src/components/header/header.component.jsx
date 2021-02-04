@@ -5,16 +5,33 @@
  */
 
 // ----------------------------------------------------------------
+/** Imports */
 
-/** Components */
 import React from "react";
+
+// ----------------------------------------------------------------
+/** Redux */
+
+import { connect } from "react-redux";
+
+// ----------------------------------------------------------------
+/** Routing */
+
 import { Link } from "react-router-dom";
+
+// ----------------------------------------------------------------
+/** Firebase */
+
 import { auth } from "../../firebase/firebase.utils";
 
+// ----------------------------------------------------------------
 /** Styles */
+
 import "./header.styles.scss";
 
+// ----------------------------------------------------------------
 /** Images */
+
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 // ----------------------------------------------------------------
@@ -48,5 +65,16 @@ const Header = ({ currentUser }) => {
 	);
 };
 
+/**
+ * mapStateToProps function
+ * Allows to access the state, the root reducer
+ * @param {object} state - The root reducer
+ */
+const mapStateToProps = (state) =>
+	//debugger;
+	({
+		currentUser: state.hasOwnProperty("user") ? state.user.currentUser : null,
+	});
+
 // Exporting component
-export default Header;
+export default connect(mapStateToProps)(Header);

@@ -5,12 +5,18 @@
  */
 
 // ----------------------------------------------------------------
+/** Imports */
 
+import React from "react";
+
+// ----------------------------------------------------------------
 /** JSON data */
+
 import SHOP_DATA from "./shop.data";
 
+// ----------------------------------------------------------------
 /** Components */
-import React from "react";
+
 import CollectionPreview from "../../components/collection-preview/collection-preview.component";
 
 // ----------------------------------------------------------------
@@ -31,6 +37,7 @@ class Shop extends React.Component {
 
 	// Rendering component
 	render() {
+          // State deconstructed
 		const { collections } = this.state;
 
 		return (

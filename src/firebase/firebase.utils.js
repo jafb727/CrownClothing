@@ -2,17 +2,21 @@
  * Filename: firebase.utils.js
  * Author: Jose A Felix
  * Description: Firebase utils config file
+ * Notes: Firestore request returns always two types of objetcs: references and snaphots
+ *           Both can be a collection or a document
  */
 
 // ----------------------------------------------------------------
+/** Imports */
 
-/** Dependencies */
 import firebase from "firebase/app";
-
-// Importing just the modules needed in our project
 import "firebase/firestore";
 import "firebase/auth";
 
+// ----------------------------------------------------------------
+/** Configuration */
+
+// Firebase configuration from the jafb737 account
 const config = {
 	apiKey: "AIzaSyDR75rfpM6iShWrg3qE3OwkslwGt9_2C_8",
 	authDomain: "crown-db-49e93.firebaseapp.com",
@@ -22,22 +26,32 @@ const config = {
 	appId: "1:91007692514:web:034548cc0e9df65b6eb8bb",
 };
 
-// Firestore request retunrs alwalys two types of objetcs: references and snaphots.name
-// Both can be a collection or a document
+// Initializaing Firebase
+firebase.initializeApp(config);
+
+// ----------------------------------------------------------------
+/** Exports  */
+
+// Firebase main objects
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
 /**
- * This methods sends a request to Firebase to save a user into database
- * @param {object} userAuth - contains information for the user logged in the application
+ * This method sends a request to Firebase to save a user into database
+ * @param {object} userAuth - Contains information for the user logged in the application
+ * @param {object} additionalData - If any additional information needs to be added in firebase document
  */
 export const createUserProfileDocument = async (userAuth, additionalData) => {
+	// In case no user is logged
 	if (!userAuth) {
 		return;
 	}
 
-     const userRef = firestore.doc(`users/${userAuth.uid}`);
-     const snapShot = await userRef.get();
-     
+	// User is logged. We make a request to Firebase
+	const userRef = firestore.doc(`users/${userAuth.uid}`);
+	const snapShot = await userRef.get();
 
-	// Create a piece of data
+	// Create a user in Firebase /users collection
 	if (!snapShot.exists) {
 		const { displayName, email } = userAuth;
 		const createdAt = new Date();
@@ -52,23 +66,20 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 		} catch (error) {
 			console.log("error creating user", error.message);
 		}
-     }
-     
-     return userRef;
+	}
+
+	return userRef;
 };
 
-firebase.initializeApp(config);
-
-// Needed to export the modules from the firebase condiguration received
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
-
+/** Google authentication  */
 // Export Google authentication
-const provider = new firebase.auth.GoogleAuthProvider();
 // Popup Google popup whenever this provider is used for authentication and sig in
-provider.setCustomParameters({ prompt: "select_account" });
 // Just one to authenticate in a popup
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+// ----------------------------------------------------------------
 
 // In case we want the whole library
 export default firebase;

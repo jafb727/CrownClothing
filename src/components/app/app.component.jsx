@@ -5,17 +5,31 @@
  */
 
 // ----------------------------------------------------------------
+/** Imports */
 
-/** Components */
 import React from "react";
+
+// ----------------------------------------------------------------
+/** Routing */
+
 import { Switch, Route } from "react-router-dom";
+
+// ----------------------------------------------------------------
+/** Firebase */
+
+import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+
+// ----------------------------------------------------------------
+/** Components */
+
 import Home from "../../pages/home/home.component";
 import Shop from "../../pages/shop/shop.component";
 import Header from "../header/header.component";
 import Sign from "../../pages/sign/sign.component";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
+// ----------------------------------------------------------------
 /** Stylesheets */
+
 import "./app.styles.scss";
 
 // ----------------------------------------------------------------
@@ -49,14 +63,17 @@ class App extends React.Component {
 
 				// If DB has been updated
 				userRef.onSnapshot((snapShot) => {
-					this.setState({
-						currentUser: {
-							id: snapShot.id,
-							...snapShot.data(),
+					this.setState(
+						{
+							currentUser: {
+								id: snapShot.id,
+								...snapShot.data(),
+							},
 						},
-					}, () => {
-                              console.log(this.state)
-                         });
+						() => {
+							console.log(this.state);
+						}
+					);
 				});
 
 				// Set currentUser to null in case is userAuth is null
@@ -75,11 +92,12 @@ class App extends React.Component {
 
 	// Rendering component
 	render() {
+		// State deconstructed
 		const { currentUser } = this.state;
 
 		return (
 			<div>
-				<Header currentUser={currentUser} />
+				<Header />
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/shop" component={Shop} />
