@@ -70,11 +70,9 @@ const Header = ({ currentUser }) => {
  * Allows to access the state, the root reducer
  * @param {object} state - The root reducer
  */
-const mapStateToProps = (state) =>
-	//debugger;
-	({
-		currentUser: state.hasOwnProperty("user") ? state.user.currentUser : null,
-	});
+const mapStateToProps = (state) => ({
+	currentUser: state.user ? state.user.currentUser : state,
+});
 
 // Exporting component
 export default connect(mapStateToProps)(Header);
