@@ -12,7 +12,7 @@ import React from "react";
 // ----------------------------------------------------------------
 /** Routing */
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 // ----------------------------------------------------------------
 /** Firebase */
@@ -50,7 +50,7 @@ class App extends React.Component {
 
 	// componentDidMount
 	componentDidMount() {
-          const {setCurrentUser} = this.props;
+		const { setCurrentUser } = this.props;
 
 		// This is to maintain up to date firebase with any change in the application
 		// So we need to implement a subscription
@@ -68,7 +68,7 @@ class App extends React.Component {
 				});
 
 				// Set currentUser to null in case is userAuth is null
-				setCurrentUser({ currentUser: userAuth });
+				setCurrentUser(userAuth);
 			}
 		});
 	}
@@ -89,16 +89,30 @@ class App extends React.Component {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/shop" component={Shop} />
-					<Route path="/sign" component={Sign} />
+					<Route
+						exact
+						path="/sign"
+						render={(user) =>
+							this.props.currentUser ? <Redirect to="/" /> : <Sign />
+						}
+					/>
 				</Switch>
 			</div>
 		);
 	}
 }
 
-const mapDispatchToProps = (dispatch) => ({
-	setCurrentUser: (user) => dispatch(setCurrentUser(user))
-});
+const mapStateToProps = (state) => {
+	return {
+		currentUser: state.user.currentUser,
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+	};
+};
 
 // Exporting component
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

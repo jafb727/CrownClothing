@@ -71,7 +71,7 @@ const Header = ({ currentUser }) => {
  * @param {object} state - The root reducer
  */
 const mapStateToProps = (state) => ({
-	currentUser: state.user ? state.user.currentUser : state,
+	currentUser: state.user.currentUser,
 });
 
 // Exporting component

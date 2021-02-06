@@ -30,8 +30,8 @@ import "./sign-up.styles.scss";
 // Main component
 class SignUp extends React.Component {
 	// Constructor
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		// Component state
 		this.state = {
@@ -54,6 +54,7 @@ class SignUp extends React.Component {
 		// Synthetic event. Looks like JavaScript
 		event.preventDefault();
 
+		// Deconstructing state
 		const { displayName, email, password, confirmPassword } = this.state;
 
 		// Validating password

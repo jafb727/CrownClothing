@@ -51,29 +51,27 @@ class SignIn extends React.Component {
 	onSubmitSign = async (event) => {
 		event.preventDefault();
 
+		// Descontructing state
 		const { email, password } = this.state;
 
 		try {
+			// Invoking signing with email and password
 			await auth.signInWithEmailAndPassword(email, password);
+
+			// Reseting state
 			this.setState({ email: "", password: "" });
 		} catch (error) {
 			console.log(error);
 		}
-
-		this.setState({
-			email: "",
-			password: "",
-		});
 	};
 
 	/**
-      * onFieldChange function
+	 * onFieldChange function
 	 * Handles the field chaging event
 	 * @param {object} event - the DOM element that triggered the event
 	 */
 	onFieldChange = (event) => {
 		const { value, name } = event.target;
-
 		this.setState({
 			[name]: value,
 		});
