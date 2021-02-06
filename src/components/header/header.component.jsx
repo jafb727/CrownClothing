@@ -25,6 +25,12 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
 
 // ----------------------------------------------------------------
+/** Components */
+
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+
+// ----------------------------------------------------------------
 /** Styles */
 
 import "./header.styles.scss";
@@ -37,7 +43,7 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 // ----------------------------------------------------------------
 
 // Main component
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, displayCartDropdown }) => {
 	// Rendering component
 	return (
 		<div className="header">
@@ -60,7 +66,9 @@ const Header = ({ currentUser }) => {
 						SIGN IN
 					</Link>
 				)}
+				<CartIcon />
 			</div>
+			{displayCartDropdown ? <CartDropdown /> : null}
 		</div>
 	);
 };
@@ -70,8 +78,12 @@ const Header = ({ currentUser }) => {
  * Allows to access the state, the root reducer
  * @param {object} state - The root reducer
  */
-const mapStateToProps = (state) => ({
-	currentUser: state.user.currentUser,
+const mapStateToProps = ({
+	user: { currentUser },
+	cart: { displayCartDropdown },
+}) => ({
+	currentUser,
+	displayCartDropdown,
 });
 
 // Exporting component

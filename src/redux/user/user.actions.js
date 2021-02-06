@@ -1,8 +1,7 @@
 /**
  * Filename: user.actions.js
  * Author: Jose A Felix
- * Description: User actions redux file.
- *                  Defines how the actions should be
+ * Description: User actions redux file
  */
 
 // ----------------------------------------------------------------

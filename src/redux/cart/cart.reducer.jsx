@@ -1,33 +1,32 @@
 /**
- * Filename: user.reducer.jsx
+ * Filename: cart.reducer.jsx
  * Author: Jose A Felix
- * Description: User reducer redux file
+ * Description: Cart reducer redux file
  */
 
 // ----------------------------------------------------------------
 /** Imports */
 
-import { UserActionTypes } from "./user.types";
+import { CartActionTypes } from "./cart.types";
 
 // ----------------------------------------------------------------
 
-// Reducer initial state
 const INITIAL_STATE = {
-	currentUser: null,
+	displayCartDropdown: false,
 };
 
 /**
- * userReducer function
- * Helps to manage the actions corresponding to user
+ * cartReducer function
+ * Helps to manage the actions corresponding to cart
  * @param {object} state - the current state of the component
  * @param {object} action - the action that invoked the reducer intervention
  */
-const userReducer = (state = INITIAL_STATE, action) => {
+const cartReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
-		case UserActionTypes.SET_CURRENT_USER:
+		case CartActionTypes.DISPLAY_CART_DROPDOWN:
 			return {
 				...state,
-				currentUser: action.payload,
+				displayCartDropdown: !state.displayCartDropdown,
 			};
 
 		default:
@@ -36,4 +35,4 @@ const userReducer = (state = INITIAL_STATE, action) => {
 };
 
 // Exporting reducer
-export default userReducer;
+export default cartReducer;

@@ -2,7 +2,6 @@
  * Filename: user.types.jsx
  * Author: Jose A Felix
  * Description: User action types file
- *                  Defines all user action types
  */
 
 // ----------------------------------------------------------------
