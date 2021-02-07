@@ -10,6 +10,11 @@
 import React from "react";
 
 // ----------------------------------------------------------------
+/** Components */
+
+import CustomButton from "../custom-button/custom-button.component";
+
+// ----------------------------------------------------------------
 /** Styles */
 
 import "./collection-item.styles.scss";
@@ -29,6 +34,7 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
 				<span className="name">{name}</span>
 				<span className="price">{price}</span>
 			</div>
+               <CustomButton invertStyle>Add to cart</CustomButton>
 		</div>
 	);
 };
