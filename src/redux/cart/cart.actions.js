@@ -15,3 +15,9 @@ import { CartActionTypes } from "./cart.types";
 export const displayCartDropdown = () => ({
 	type: CartActionTypes.DISPLAY_CART_DROPDOWN,
 });
+
+/** addItemToCart action */
+export const addItemToCart = (item) => ({
+	type: CartActionTypes.ADD_ITEM_TO_CART,
+	payload: item,
+});

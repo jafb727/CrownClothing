@@ -8,11 +8,13 @@
 /** Imports */
 
 import { CartActionTypes } from "./cart.types";
+import { addItemToCartAux } from "./cart.utils";
 
 // ----------------------------------------------------------------
 
 const INITIAL_STATE = {
 	displayCartDropdown: false,
+	itemsInsideTheCart: [],
 };
 
 /**
@@ -27,6 +29,15 @@ const cartReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				displayCartDropdown: !state.displayCartDropdown,
+			};
+
+		case CartActionTypes.ADD_ITEM_TO_CART:
+			return {
+				...state,
+				itemsInsideTheCart: addItemToCartAux(
+					state.itemsInsideTheCart,
+					action.payload
+				),
 			};
 
 		default:

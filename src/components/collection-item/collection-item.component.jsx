@@ -10,6 +10,12 @@
 import React from "react";
 
 // ----------------------------------------------------------------
+/** Redux */
+
+import { connect } from "react-redux";
+import { addItemToCart } from "../../redux/cart/cart.actions";
+
+// ----------------------------------------------------------------
 /** Components */
 
 import CustomButton from "../custom-button/custom-button.component";
@@ -22,7 +28,10 @@ import "./collection-item.styles.scss";
 // ----------------------------------------------------------------
 
 // Main component
-const CollectionItem = ({ id, name, price, imageUrl }) => {
+const CollectionItem = ({ item, addItemToCart }) => {
+	// Descontructing item
+	const { id, name, price, imageUrl } = item;
+
 	// Rendering component
 	return (
 		<div className="collection-item">
@@ -34,10 +43,16 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
 				<span className="name">{name}</span>
 				<span className="price">{price}</span>
 			</div>
-               <CustomButton invertStyle>Add to cart</CustomButton>
+			<CustomButton invertedStyle onClick={() => addItemToCart(item)}>
+				Add to cart
+			</CustomButton>
 		</div>
 	);
 };
 
+const mapDispatchToProps = (dispatch) => ({
+	addItemToCart: (item) => dispatch(addItemToCart(item)),
+});
+
 // Exporting component
-export default CollectionItem;
+export default connect(null, mapDispatchToProps)(CollectionItem);

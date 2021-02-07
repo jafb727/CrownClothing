@@ -17,11 +17,11 @@ import "./custom-button.styles.scss";
 // ----------------------;------------------------------------------
 
 // Main component
-const CustomButton = ({ children, isGoogleSignIn, invertStyle, ...buttonProps }) => {
+const CustomButton = ({ children, isGoogleSignIn, invertedStyle, ...buttonProps }) => {
 	// Rendering component
 	return (
 		<button
-			className={`${invertStyle ? "invertedStyle" : ""} ${isGoogleSignIn ? "google-sign-in" : ""} custom-button`}
+			className={`${invertedStyle ? "invertedStyle" : ""} ${isGoogleSignIn ? "google-sign-in" : ""} custom-button`}
 			{...buttonProps}
 		>
 			{children}
