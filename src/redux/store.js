@@ -19,7 +19,12 @@ import rootReducer from "./root-reducer";
 // ----------------------------------------------------------------
 /** Setting up middlewares */
 
-const middlewares = [logger];
+const middlewares = [];
+
+// Conditionally adding looger just in a development enviroment
+if ((process.env.NODE_ENV = "development")) {
+	middlewares.push(logger);
+}
 
 // ----------------------------------------------------------------
 /** Store */
