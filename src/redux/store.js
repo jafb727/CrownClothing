@@ -22,7 +22,7 @@ import rootReducer from "./root-reducer";
 const middlewares = [];
 
 // Conditionally adding looger just in a development enviroment
-if ((process.env.NODE_ENV = "development")) {
+if (process.env.NODE_ENV == "development") {
 	middlewares.push(logger);
 }
 
